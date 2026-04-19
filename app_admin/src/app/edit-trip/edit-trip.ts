@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -9,14 +8,11 @@ import { Trip } from '../models/trip';
 
 @Component({
   selector: 'app-edit-trip',
-  imports: [],
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './edit-trip.html',
-  styleUrl: './edit-trip.css',
   styleUrl: './edit-trip.css'
 })
-export class EditTrip {}
 export class EditTripComponent implements OnInit {
   public editForm!: FormGroup;
   trip!: Trip;
@@ -94,4 +90,3 @@ export class EditTripComponent implements OnInit {
     return this.editForm.controls;
   }
 }
-

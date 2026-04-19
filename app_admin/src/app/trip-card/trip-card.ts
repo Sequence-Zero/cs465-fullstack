@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Trip } from '../models/trip';
+import { AuthenticationService } from '../services/authentication';
+
 @Component({
   selector: 'app-trip-card',
   standalone: true,
@@ -12,10 +14,17 @@ import { Trip } from '../models/trip';
 export class TripCard {
   @Input() trip: any;
 
-  constructor(private router: Router) {}
+  constructor(
+  private router: Router,
+  private authenticationService: AuthenticationService
+) {}
 
   ngOnInit(): void {
 
+  }
+  public isLoggedIn()
+  {
+    return this.authenticationService.isLoggedIn();
   }
 
   public editTrip(trip: Trip) {
